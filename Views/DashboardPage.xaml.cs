@@ -21,4 +21,8 @@ public partial class DashboardPage : ContentPage
     {
         await DisplayAlert("Mensaje", "La Plaza Grande", "OK");
     }
+
+
+
+
 }
