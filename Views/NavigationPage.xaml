@@ -3,30 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TouristNavigationApp.Views.NavigationPage"
              Title="NavigationPage">
-    <VerticalStackLayout>
 
-        <Label Text=""/>
-        <Label Text="Hola {Daniel}"
-               FontSize="18"/>
-        <Label Text=""/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <SearchBar Placeholder="Buscar un lugar turistico" />
 
-        <Image Source="dotnet_bot.png" 
-               HeightRequest="400"
+        <VerticalStackLayout>
+            <Label Text=""/>
+
+            <Label Text="    Hola Daniel!"
+               FontAttributes="Bold"
+               FontSize="24"/>
+            <Label Text=""/>
+
+            <SearchBar Placeholder="Buscar un sitio turistico" />
+
+            <Label Text=""/>
+            <Image Source="maps.png" 
+               HeightRequest="470"
                HorizontalOptions="Center" 
                VerticalOptions="Center" />
 
-        
+            <Label Text=""/>
+            <Label Text="Universidad Israel"
+               FontAttributes="Bold"
+               FontSize="24"
+               HorizontalOptions="Start"
+               Margin="20,0,0,0"/>
+
+            <Label Text="Universidad con 25 años en el mercado ecuatoriano. Carreras de Grado y Posgrado. La diferencia entre ser y hacer."
+               HorizontalOptions="Start"
+               Margin="20,0,0,0"/>
+        </VerticalStackLayout>
+
+
+        <StackLayout Grid.Row="1" Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+            <Frame Padding="0" HasShadow="False" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="InicioButton_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="inicio.png" WidthRequest="35" HeightRequest="60" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="0" HasShadow="False" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="IAButton_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="ia.png" WidthRequest="45" HeightRequest="60" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="0" HasShadow="False" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PerfilButton_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="perfil.png" WidthRequest="35" HeightRequest="60" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
 
 
 
 
 
-        <Label Text="------"/>
-
-
-
-
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
