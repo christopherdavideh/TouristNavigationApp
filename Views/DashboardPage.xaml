@@ -3,7 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TouristNavigationApp.Views.DashboardPage"
              Title="DashboardPage">
-    <VerticalStackLayout>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <VerticalStackLayout>
 
         <Label FontSize="10"/>
 
@@ -77,4 +85,42 @@
             </StackLayout>
         </Frame>
     </VerticalStackLayout>
+
+
+
+
+
+        <StackLayout Grid.Row="1" Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+            <Frame Padding="0" HasShadow="False" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="InicioButton_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="inicio.png" WidthRequest="35" HeightRequest="60" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="0" HasShadow="False" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="IAButton_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="ia.png" WidthRequest="45" HeightRequest="60" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="0" HasShadow="False" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PerfilButton_Tapped" />
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="perfil.png" WidthRequest="35" HeightRequest="60" HorizontalOptions="Center" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </Grid>
+
+
+
+
 </ContentPage>

@@ -68,10 +68,8 @@
                 </StackLayout>
             </Frame>
         </StackLayout>
-
-
-
-
-
     </Grid>
+    
+    
+    
 </ContentPage>
