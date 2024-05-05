@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouristNavigationApp.Views.DashboardPage"
+             Title="DashboardPage">
+    <VerticalStackLayout>
+
+        <Label
+            Text="App Turismo"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            FontSize="25"
+            />
+
+        <SearchBar Placeholder="Buscar..." />
+
+        <Frame Padding="10" CornerRadius="5" HasShadow="True" BackgroundColor="Transparent">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Frame.GestureRecognizers>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Convento de San Francisco" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,0" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="0,-10,0,0">
+                    <Image Source="Resources/Images/dotnet_bot.png" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="Es el primer templo de franciscanos en la Real Audiencia de Quito y ostenta el privilegio de ser el conjunto arquitectónico de mayor dimensión dentro de los centros históricos de toda América."
+                       VerticalOptions="Center"
+                       HorizontalOptions="StartAndExpand"
+                       Margin="10,0,0,0" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+        <Frame Padding="10" CornerRadius="5" HasShadow="True" BackgroundColor="Transparent">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+            </Frame.GestureRecognizers>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Iglesia de La Compañía de Jesús" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,0" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="0,-10,0,0">
+                    <Image Source="Resources/Images/dotnet_bot.png" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="Es uno de los templos más importantes de la arquitectura barroca en el continente americano y el mundo debido a su fachada, labrada totalmente en piedra volcánica."
+               VerticalOptions="Center"
+               HorizontalOptions="StartAndExpand"
+               Margin="10,0,0,0" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+        <Frame Padding="10" CornerRadius="5" HasShadow="True" BackgroundColor="Transparent">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+            </Frame.GestureRecognizers>
+            <StackLayout Orientation="Vertical">
+                <Label Text="La Plaza Grande" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start" Margin="10,0,0,0" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="0,-10,0,0">
+                    <Image Source="Resources/Images/dotnet_bot.png" HorizontalOptions="Start" VerticalOptions="Center" />
+                    <Label Text="Representa el centro del casco colonial y a su alrededor están edificaciones que representan importantes instituciones del Estado: al norte el Palacio Arzobispal; al sur, la imponente Catedral Metropolitana; al este, el Palacio de Carondelet"
+               VerticalOptions="Center"
+               HorizontalOptions="StartAndExpand"
+               Margin="10,0,0,0" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>

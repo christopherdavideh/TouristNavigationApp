@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouristNavigationApp.Views.NavigationPage"
+             Title="NavigationPage">
+    <VerticalStackLayout>
+
+        <Label Text=""/>
+        <Label Text="Hola {Daniel}"
+               FontSize="18"/>
+        <Label Text=""/>
+
+        <SearchBar Placeholder="Buscar un lugar turistico" />
+
+        <Image Source="dotnet_bot.png" 
+               HeightRequest="400"
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" />
+
+        
+
+
+
+
+
+        <Label Text="------"/>
+
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
