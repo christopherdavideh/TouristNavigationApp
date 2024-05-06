@@ -19,35 +19,46 @@ public partial class RegisterPage : ContentPage
         string contrasenia = txtContrasenia.Text;
         try
         {
-            if (!string.IsNullOrEmpty(cedula) || !string.IsNullOrEmpty(nombre) || !string.IsNullOrEmpty(correo) || !string.IsNullOrEmpty(direccion) || !string.IsNullOrEmpty(telefono) || !string.IsNullOrEmpty(contrasenia))
+            if (!string.IsNullOrEmpty(cedula) && !string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(correo) && !string.IsNullOrEmpty(direccion) && !string.IsNullOrEmpty(telefono) && !string.IsNullOrEmpty(contrasenia))
             {
-                if (EsEmailValido(correo))
+                if (ValidarTelefono(telefono))
                 {
-                    if (ValidarContrasenia(contrasenia))
+                    if (EsEmailValido(correo))
                     {
-                        //Hacer CRUD -> falta modelos
+                        if (ValidarContrasenia(contrasenia))
+                        {
+                            //Hacer CRUD -> falta modelos
+                            Navigation.PushAsync(new Views.LoginPage());
+                            txtCedula.Text = "";
+                            txtNombres.Text = "";
+                            txtCorreo.Text = "";
+                            txtDireccion.Text = "";
+                            txtTelefono.Text = "";
+                            txtContrasenia.Text = "";
+                        }
+                        else
+                        {
+                            DisplayAlert("Error", "La contraseña debe tener 8 caracteres, al menos una letra y al menos un número!", "Cerrar");
+                        }
                     }
                     else
                     {
-                        DisplayAlert("Error", "La contraseña debe tener 8 caracteres, al menos una letra y al menos un número!", "OK");
+                        DisplayAlert("Error", "Correo electrónico inválido!", "Cerrar");
                     }
                 }
                 else
                 {
-                    DisplayAlert("Error", "Correo electrónico inválido!", "Cerrar");
+                    DisplayAlert("Error", "Teléfono inválido debe tener 10 dígitos y empezar por cero 0!", "Cerrar");
                 }
             }
             else
             {
-                // La entrada está vacía
                 DisplayAlert("Error", "No están completos todos los campos!", "Cerrar");
             }
         }
-        catch
+        catch (Exception ex)
         {
-            DisplayAlert("Alerta", "Usuario o contraseña incorrectos!", "Cerrar");
-            txtContrasenia.Text = "";
-            txtCorreo.Text = "";
+            DisplayAlert("Error", "Detalle de error: "+ ex.Message, "Cerrar");
         }
     }
     private bool EsEmailValido(string email)
@@ -63,5 +74,11 @@ public partial class RegisterPage : ContentPage
     {
         Regex regex = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8}$");
         return regex.IsMatch(password);
+    }
+
+    private bool ValidarTelefono(string phoneNumber)
+    {
+        Regex regex = new Regex(@"^0\d{9}$");
+        return regex.IsMatch(phoneNumber);
     }
 }

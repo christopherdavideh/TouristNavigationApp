@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TouristNavigationApp.Views.RegisterPage"
-             Title="RegisterPage">
+             x:Class="TouristNavigationApp.Views.RegisterPage">
     <VerticalStackLayout
-        Spacing="20"
-        Padding="25">
+        Spacing="10"
+        Padding="25"
+        VerticalOptions="FillAndExpand">
         <Label 
             Text="Crear Cuenta" 
             FontSize="30"
             HorizontalOptions="Start"/>
-
+        <Label/>
         <Label
             Text="Cédula"
-            FontSize="15"
+            FontSize="10"
             TextColor="Gray"/>
         <Entry
             x:Name="txtCedula"
             Placeholder="Ingrese una cédula"
-            FontSize="15"/>
+            FontSize="10"/>
         <Label
             Text="Nombres"
-            FontSize="15"
+            FontSize="10"
             TextColor="Gray"/>
         <Entry
             x:Name="txtNombres"
             Placeholder="Ingrese un nombre y apellido"
-            FontSize="15"/>
+            FontSize="10"/>
         <Label
             Text="Correo"
-            FontSize="15"
+            FontSize="10"
             TextColor="Gray"/>
         <Entry
             x:Name="txtCorreo"
             Placeholder="Ingrese un correo"
-            FontSize="15"/>
+            FontSize="10"/>
         <Label
             Text="Dirección"
-            FontSize="15"
+            FontSize="10"
             TextColor="Gray"/>
         <Entry
             x:Name="txtDireccion"
             Placeholder="Ingrese una dirección"
-            FontSize="15"/>
+            FontSize="10"/>
         <Label
             Text="Teléfono"
-            FontSize="15"
+            FontSize="10"
             TextColor="Gray"/>
         <Entry
             x:Name="txtTelefono"
-            Placeholder="Ingrese un telefono"
-            FontSize="15"
+            Placeholder="Ingrese un teléfono"
+            FontSize="10"
             Keyboard="Numeric"/>
         <Label
             Text="Contraseña"
-            FontSize="15"
+            FontSize="10"
             TextColor="Gray"/>
         <Entry
             x:Name="txtContrasenia"
             Placeholder="Ingrese una contraseña"
-            FontSize="15"/>
+            FontSize="10"/>
         <Label
             Text="Al dar clic en siguiente, acepta los Términos y condiciones de la aplicación"
             FontSize="12"
@@ -68,7 +68,7 @@
             x:Name="btnRegister"
             Text="Siguiente"
             BackgroundColor="Blue"
-            FontSize="15"
+            FontSize="10"
             Clicked="btnRegister_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
