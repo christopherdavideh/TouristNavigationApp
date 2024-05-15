@@ -1,20 +1,30 @@
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
+using TouristNavigationApp.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TouristNavigationApp.Views;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
+    private const string URL = "http://localhost/appmovil/post.php";
+    private readonly HttpClient cliente = new HttpClient();
+    Dictionary<string, string> Credenciales = new Dictionary<string, string>();
+    public LoginPage()
 	{
 		InitializeComponent();
+        ObtenerUsuarios();
 	}
-
+    public async void ObtenerUsuarios()
+    {
+        var content = await cliente.GetStringAsync(URL);
+        List<Usuarios> mostrarUsuarios = JsonConvert.DeserializeObject<List<Usuarios>>(content);
+        Credenciales = mostrarUsuarios.ToDictionary(usuario => usuario.CorreoUsuario, usuario => usuario.ContraseniaUsuario);
+    }
     private void btnLogin_Clicked(object sender, EventArgs e)
     {
-        Dictionary<string, string> Credenciales = new Dictionary<string, string>();
-        Credenciales.Add("daniel@gmail.com", "12345");
-
         string usuario = txtCorreo.Text;
         string clave = txtContrasenia.Text;
         try

@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text.RegularExpressions;
 
 namespace TouristNavigationApp.Views;
@@ -27,7 +28,15 @@ public partial class RegisterPage : ContentPage
                     {
                         if (ValidarContrasenia(contrasenia))
                         {
-                            //Hacer CRUD -> falta modelos
+                            WebClient usuario = new WebClient();
+                            var parametros = new System.Collections.Specialized.NameValueCollection();
+                            parametros.Add("CiUsuario", cedula);
+                            parametros.Add("NombresUsuario", nombre);
+                            parametros.Add("CorreoUsuario", correo);
+                            parametros.Add("DireccionUsuario", direccion);
+                            parametros.Add("TelefonoUsuario", telefono);
+                            parametros.Add("ContraseniaUsuario", contrasenia);
+                            usuario.UploadValues("http://localhost/appmovil/post.php", "POST", parametros);
                             Navigation.PushAsync(new Views.LoginPage());
                             txtCedula.Text = "";
                             txtNombres.Text = "";
