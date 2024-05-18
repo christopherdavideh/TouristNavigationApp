@@ -7,6 +7,7 @@
             InitializeComponent();
 
             MainPage = new Views.DashboardPage();
+            //MainPage = new Views.NavigationPage();
         }
     }
 }

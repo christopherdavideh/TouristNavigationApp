@@ -19,7 +19,7 @@ public partial class DashboardPage : ContentPage
 
     private async void TapGestureRecognizer_Tapped_2(object sender, TappedEventArgs e)
     {
-        await DisplayAlert("Mensaje", "La Plaza Grande", "OK");
+        await DisplayAlert("Mensaje", "La Virgen del Panecillo", "OK");
     }
 
 
