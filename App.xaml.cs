@@ -7,8 +7,8 @@ namespace TouristNavigationApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new ProfilePage();
+            MainPage = new Views.DashboardPage();
+            //MainPage = new Views.NavigationPage();
         }
     }
 }
