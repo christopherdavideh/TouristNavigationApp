@@ -1,4 +1,6 @@
-﻿namespace TouristNavigationApp
+﻿using TouristNavigationApp.Views;
+
+namespace TouristNavigationApp
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new ProfilePage();
         }
     }
 }

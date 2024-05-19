@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TouristNavigationApp.Views.ProfilePage"
+             Title="ProfilePage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label
+                Text="My Profile"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Margin="0,0,0,20"/>
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,20" x:Name="perfilStackLayout" >
+                <Image Source="profile_icon.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFill"  Margin="0,0,15,0" />
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Nombre de Usuario:" FontSize="16" VerticalOptions="Center" Margin="0,0,0,5" />
+                        <ImageButton x:Name="editName" Source="edit_icon.png" Clicked="editName_Clicked" HeightRequest="20" />
+                    </StackLayout>
+                    <Label Text="usuario_example" FontSize="16" Margin="0,0,0,10"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Correo electrónico:" FontSize="16" VerticalOptions="Center" Margin="0,0,0,5" />
+                        <ImageButton x:Name="editEmail" Source="edit_icon.png" Clicked="editEmail_Clicked" HeightRequest="20" />
+                    </StackLayout>
+                    <Label Text="usuario@example.com" FontSize="16" Margin="0,0,0,10"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Fecha de nacimiento:" FontSize="16" VerticalOptions="Center" Margin="0,0,0,5" />
+                        <ImageButton Source="edit_icon.png" HeightRequest="20"/>
+                    </StackLayout>
+                    <Label Text="01/01/2000" FontSize="16"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Información Adicional" FontSize="20" Margin="0,0,0,10" />
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum nunc. Nulla facilisi." FontSize="16" />
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
