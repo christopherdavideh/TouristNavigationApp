@@ -9,58 +9,58 @@
         VerticalOptions="FillAndExpand">
             <Label 
             Text="Crear Cuenta" 
-            FontSize="30"
+            FontSize="25"
             HorizontalOptions="Start"/>
             <Label/>
             <Label
             Text="Cédula"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtCedula"
             Placeholder="Ingrese una cédula"
-            FontSize="15"/>
+            FontSize="18"/>
             <Label
             Text="Nombres"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtNombres"
             Placeholder="Ingrese un nombre y apellido"
-            FontSize="15"/>
+            FontSize="18"/>
             <Label
             Text="Correo"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtCorreo"
             Placeholder="Ingrese un correo"
-            FontSize="15"/>
+            FontSize="18"/>
             <Label
             Text="Dirección"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtDireccion"
             Placeholder="Ingrese una dirección"
-            FontSize="15"/>
+            FontSize="18"/>
             <Label
             Text="Teléfono"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtTelefono"
             Placeholder="Ingrese un teléfono"
-            FontSize="15"
+            FontSize="18"
             Keyboard="Numeric"/>
             <Label
             Text="Contraseña"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtContrasenia"
             Placeholder="Ingrese una contraseña"
-            FontSize="15"/>
+            FontSize="18"/>
             <Label
             Text="Al dar clic en Siguiente, acepta los términos y condiciones de la aplicación"
             FontSize="12"
@@ -69,7 +69,7 @@
             x:Name="btnRegister"
             Text="Siguiente"
             BackgroundColor="Blue"
-            FontSize="15"
+            FontSize="18"
             Clicked="btnRegister_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>

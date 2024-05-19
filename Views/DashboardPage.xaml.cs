@@ -2,14 +2,16 @@ namespace TouristNavigationApp.Views;
 
 public partial class DashboardPage : ContentPage
 {
-	public DashboardPage()
+    private string usuarioLoggeado;
+	public DashboardPage(string correo)
 	{
 		InitializeComponent();
+        usuarioLoggeado = correo;
 	}
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        await DisplayAlert("Mensaje", "Convento de San Francisco", "OK");
+        Navigation.PushAsync(new SitePage(lblTitleOne.Text));
     }
 
     private async void TapGestureRecognizer_Tapped_1(object sender, TappedEventArgs e)
@@ -35,7 +37,7 @@ public partial class DashboardPage : ContentPage
 
     private async void PerfilButton_Tapped(object sender, TappedEventArgs e)
     {
-        await DisplayAlert("Mensaje", "PERFIL", "OK");
+        Navigation.PushAsync(new ProfilePage(usuarioLoggeado));
     }
 
 

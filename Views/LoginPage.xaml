@@ -8,38 +8,38 @@
         Padding="25">
             <Label 
             Text="Login" 
-            FontSize="30"
+            FontSize="25"
             HorizontalOptions="Start"/>
             <Label x:Name="listaUsuarios"/>
             <Label/>
             <Label
             Text="Correo"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtCorreo"
             Placeholder="Ingrese el correo"
-            FontSize="15"/>
+            FontSize="18"/>
             <Label
             Text="Contraseña"
-            FontSize="15"
+            FontSize="18"
             TextColor="Gray"/>
             <Entry
             x:Name="txtContrasenia"
             Placeholder="Ingrese la contraseña"
-            FontSize="15"/>
+            FontSize="18"/>
             <Button
             x:Name="btnLogin"
             Text="Continuar"
             BackgroundColor="Blue"
-            FontSize="15"
+            FontSize="18"
             Clicked="btnLogin_Clicked"/>
             <Label/>
             <Button
             x:Name="btnRegister"
             Text="Registrarme"
             Background="Green"
-            FontSize="15"
+            FontSize="18"
             Clicked="btnRegister_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>

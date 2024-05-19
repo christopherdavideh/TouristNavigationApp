@@ -1,42 +1,81 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TouristNavigationApp.Views.ProfilePage"
-             Title="ProfilePage">
+             x:Class="TouristNavigationApp.Views.ProfilePage">
     <ScrollView>
         <VerticalStackLayout Padding="20">
             <Label
-                Text="My Profile"
+                Text="Mi Perfil"
                 SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                Margin="0,0,0,20"/>
-            <StackLayout Orientation="Horizontal" Margin="0,0,0,20" x:Name="perfilStackLayout" >
-                <Image Source="profile_icon.png" HeightRequest="100" WidthRequest="100" Aspect="AspectFill"  Margin="0,0,15,0" />
-                <StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Nombre de Usuario:" FontSize="16" VerticalOptions="Center" Margin="0,0,0,5" />
-                        <ImageButton x:Name="editName" Source="edit_icon.png" Clicked="editName_Clicked" HeightRequest="20" />
-                    </StackLayout>
-                    <Label Text="usuario_example" FontSize="16" Margin="0,0,0,10"/>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Correo electrónico:" FontSize="16" VerticalOptions="Center" Margin="0,0,0,5" />
-                        <ImageButton x:Name="editEmail" Source="edit_icon.png" Clicked="editEmail_Clicked" HeightRequest="20" />
-                    </StackLayout>
-                    <Label Text="usuario@example.com" FontSize="16" Margin="0,0,0,10"/>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Fecha de nacimiento:" FontSize="16" VerticalOptions="Center" Margin="0,0,0,5" />
-                        <ImageButton Source="edit_icon.png" HeightRequest="20"/>
-                    </StackLayout>
-                    <Label Text="01/01/2000" FontSize="16"/>
-                </StackLayout>
-            </StackLayout>
+                FontSize="25"
+                HorizontalOptions="Center"/>
 
-            <StackLayout>
-                <Label Text="Información Adicional" FontSize="20" Margin="0,0,0,10" />
-                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fermentum nunc. Nulla facilisi." FontSize="16" />
-            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                    Text="Nombres:"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
+                <Entry x:Name="txtNombres"
+                       FontSize="18"
+                       HorizontalTextAlignment="Start"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       IsEnabled="False"/>
+
+                <Label 
+                    Text="Correo electrónico:"
+                    FontSize="18"
+                    HorizontalTextAlignment="Center"
+                    Grid.Row="1"
+                    Grid.Column="0"/>
+                <Entry x:Name="txtCorreo"
+                       FontSize="18"
+                       HorizontalTextAlignment="Start"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       IsEnabled="False"/>
+            </Grid>
+            <Label/>
+            <Label Text="Mis comentarios"
+                       FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <ListView x:Name="listaComentarios"
+                      ItemSelected="listaComentarios_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:Name="lblComentario" Text="{Binding DetalleComentario}" Grid.Row="0" Grid.Column="0"/>
+                                    <Label x:Name="lblFecha" Text="{Binding FechaComentario}" Grid.Row="0" Grid.Column="1"/>
+                                </Grid>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
