@@ -15,7 +15,7 @@ public partial class LoginPage : ContentPage
     public LoginPage()
 	{
 		InitializeComponent();
-        ObtenerUsuarios();
+        //ObtenerUsuarios();
 	}
     public async void ObtenerUsuarios()
     {
