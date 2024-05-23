@@ -9,12 +9,12 @@ namespace TouristNavigationApp.Models
 {
     public class Usuarios
     {
-        public int IdUsuario { get; set; }
-        public string CiUsuario { get; set; }
-        public string NombresUsuario { get; set; }
-        public string CorreoUsuario { get; set; }
-        public string DireccionUsuario { get; set; }
-        public string TelefonoUsuario { get; set; }
-        public string ContraseniaUsuario { get; set; }
+        public int useId { get; set; }
+        public string useCi { get; set; }
+        public string useName { get; set; }
+        public string useEmail { get; set; }
+        public string useAddress { get; set; }
+        public string usePhone { get; set; }
+        public string usePassword { get; set; }
     }
 }

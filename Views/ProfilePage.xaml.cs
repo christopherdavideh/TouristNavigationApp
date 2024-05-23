@@ -6,35 +6,43 @@ namespace TouristNavigationApp.Views;
 
 public partial class ProfilePage : ContentPage
 {
-    private const string Url = "http://localhost/appmovil/postcoment.php";
-    private string UrlUsuarioConsulta = "http://localhost/appmovil/post.php?CorreoUsuario=";
-    private readonly HttpClient cliente = new HttpClient();
+    private readonly HttpClient _httpClient;
+    private const string URLComment = "http://localhost:8080/api/v1/comments/user/";
+    private const string URLUse = "http://localhost:8080/api/v1/users/email/";
     private ObservableCollection<Comentarios> comentario;
     private string usuarioLoggeado;
+    private int idUsuario;
     public ProfilePage(string correo)
 	{
 		InitializeComponent();
+        _httpClient = new HttpClient();
         usuarioLoggeado = correo;
         ObtenerComentarios();
-        ObtenerUsuario();
 	}
     public async void ObtenerComentarios()
     {
-        var content = await cliente.GetStringAsync(Url);
+        await ObtenerUsuario();
+        var content = await _httpClient.GetStringAsync(URLComment+idUsuario.ToString());
         List<Comentarios> mostrarComentario = JsonConvert.DeserializeObject<List<Comentarios>>(content);
         comentario = new ObservableCollection<Comentarios>(mostrarComentario);
         listaComentarios.ItemsSource = mostrarComentario;
     }
-    public async void ObtenerUsuario()
+    public async Task ObtenerUsuario()
     {
-        var contentUsuario = await cliente.GetStringAsync(UrlUsuarioConsulta + usuarioLoggeado);
-        Usuarios usuarioPerfil = JsonConvert.DeserializeObject<Usuarios>(contentUsuario);
-        txtCorreo.Text = usuarioPerfil.CorreoUsuario;
-        txtNombres.Text = usuarioPerfil.NombresUsuario;
+        var contentUse = await _httpClient.GetStringAsync(URLUse + usuarioLoggeado);
+        Usuarios usuarioActual = JsonConvert.DeserializeObject<Usuarios>(contentUse);
+        txtCorreo.Text = usuarioActual.useEmail;
+        txtNombres.Text = usuarioActual.useName;
+        idUsuario = usuarioActual.useId;
     }
     private void listaComentarios_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         var objcomentario = (Comentarios)e.SelectedItem;
         Navigation.PushAsync(new UpdateCommentPage(objcomentario, usuarioLoggeado));
+    }
+
+    private void btnUpdateProfile_Clicked(object sender, EventArgs e)
+    {
+
     }
 }

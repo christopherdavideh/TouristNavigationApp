@@ -1,46 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TouristNavigationApp.Views.LoginPage">
+             x:Class="TouristNavigationApp.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
     <ScrollView>
-        <VerticalStackLayout
-        Spacing="10"
-        Padding="25">
-            <Label 
-            Text="Login" 
-            FontSize="25"
-            HorizontalOptions="Start"/>
-            <Label x:Name="listaUsuarios"/>
+        <VerticalStackLayout Spacing="15" Padding="25" BackgroundColor="#f5f5f5">
+            <Label Text="Bienvenido a nuestra plataforma de turismo" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#008080"/>
+            <Image Source="usuario.png" HeightRequest="150" HorizontalOptions="Center"/>
+            <Label Text="Iniciar Sesión" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Correo Electrónico" FontSize="15" FontAttributes="Bold" TextColor="#008080"/>
+            <Entry x:Name="txtCorreo" Placeholder="Ingrese su correo" FontSize="15" BackgroundColor="#d3d3d3" TextColor="#333333"/>
+            <Label Text="Contraseña" FontSize="15" FontAttributes="Bold" TextColor="#008080"/>
+            <Entry x:Name="txtContrasenia" Placeholder="Ingrese su contraseña" IsPassword="True" FontSize="15" BackgroundColor="#d3d3d3" TextColor="#333333"/>
+            <Button x:Name="btnLogin" Text="Iniciar Sesión" BackgroundColor="#008080" TextColor="#ffffff" FontSize="15" Clicked="btnLogin_Clicked"/>
             <Label/>
-            <Label
-            Text="Correo"
-            FontSize="18"
-            TextColor="Gray"/>
-            <Entry
-            x:Name="txtCorreo"
-            Placeholder="Ingrese el correo"
-            FontSize="18"/>
-            <Label
-            Text="Contraseña"
-            FontSize="18"
-            TextColor="Gray"/>
-            <Entry
-            x:Name="txtContrasenia"
-            Placeholder="Ingrese la contraseña"
-            FontSize="18"/>
-            <Button
-            x:Name="btnLogin"
-            Text="Continuar"
-            BackgroundColor="Blue"
-            FontSize="18"
-            Clicked="btnLogin_Clicked"/>
-            <Label/>
-            <Button
-            x:Name="btnRegister"
-            Text="Registrarme"
-            Background="Green"
-            FontSize="18"
-            Clicked="btnRegister_Clicked"/>
+            <Label Text="¿No tienes una cuenta? Regístrate ahora" FontSize="15" FontAttributes="Bold" HorizontalOptions="Center" TextColor="#008080"/>
+            <Button x:Name="btnRegister" Text="Registrarme" BackgroundColor="#008080" TextColor="#ffffff" FontSize="15" Clicked="btnRegister_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>

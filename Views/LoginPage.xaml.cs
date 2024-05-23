@@ -9,24 +9,24 @@ namespace TouristNavigationApp.Views;
 
 public partial class LoginPage : ContentPage
 {
-    private const string URL = "http://localhost/appmovil/post.php";
+    private const string URL = "http://localhost:8080/api/v1/users";
     private readonly HttpClient cliente = new HttpClient();
     Dictionary<string, string> Credenciales = new Dictionary<string, string>();
     public LoginPage()
 	{
 		InitializeComponent();
-        //ObtenerUsuarios();
+        ObtenerUsuarios();
 	}
     public async void ObtenerUsuarios()
     {
         var content = await cliente.GetStringAsync(URL);
         List<Usuarios> mostrarUsuarios = JsonConvert.DeserializeObject<List<Usuarios>>(content);
-        Credenciales = mostrarUsuarios.ToDictionary(usuario => usuario.CorreoUsuario, usuario => usuario.ContraseniaUsuario);
+        Credenciales = mostrarUsuarios.ToDictionary(usuario => usuario.useEmail, usuario => usuario.usePassword);
     }
     private void btnLogin_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new DashboardPage("danielrepreuno@gmail.com"));
-        /*
+        //Navigation.PushAsync(new DashboardPage("correo@gmail.com"));
+        
         string usuario = txtCorreo.Text;
         string clave = txtContrasenia.Text;
         try
@@ -37,7 +37,8 @@ public partial class LoginPage : ContentPage
                 {
                     if (clave == Credenciales[usuario])
                     {
-                        //Iniciar sesión a la página respectiva
+                        Navigation.PushAsync(new DashboardPage(usuario));
+                        //Preferences.Set("Username", usuario);
                         txtContrasenia.Text = "";
                         txtCorreo.Text = "";
                     }
@@ -60,7 +61,7 @@ public partial class LoginPage : ContentPage
         {
             DisplayAlert("Alerta", "Usuario o contraseña incorrectos!", "Cerrar");
         }
-        */
+        
     }
 
     private void btnRegister_Clicked(object sender, EventArgs e)

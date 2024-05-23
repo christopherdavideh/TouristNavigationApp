@@ -1,16 +1,21 @@
-using System.Net;
+using Newtonsoft.Json;
+using System.Text;
 using System.Text.RegularExpressions;
+using TouristNavigationApp.Models;
 
 namespace TouristNavigationApp.Views;
 
 public partial class RegisterPage : ContentPage
 {
-	public RegisterPage()
+    private readonly HttpClient _httpClient;
+    private const string URL = "http://localhost:8080/api/v1/users";
+    public RegisterPage()
 	{
 		InitializeComponent();
-	}
+        _httpClient = new HttpClient();
+    }
 
-    private void btnRegister_Clicked(object sender, EventArgs e)
+    private async void btnRegister_Clicked(object sender, EventArgs e)
     {
         string cedula = txtCedula.Text;
         string nombre = txtNombres.Text;
@@ -28,15 +33,22 @@ public partial class RegisterPage : ContentPage
                     {
                         if (ValidarContrasenia(contrasenia))
                         {
-                            WebClient usuario = new WebClient();
-                            var parametros = new System.Collections.Specialized.NameValueCollection();
-                            parametros.Add("CiUsuario", cedula);
-                            parametros.Add("NombresUsuario", nombre);
-                            parametros.Add("CorreoUsuario", correo);
-                            parametros.Add("DireccionUsuario", direccion);
-                            parametros.Add("TelefonoUsuario", telefono);
-                            parametros.Add("ContraseniaUsuario", contrasenia);
-                            usuario.UploadValues("http://localhost/appmovil/post.php", "POST", parametros);
+                            Usuarios usuarioReg = new()
+                            {
+                                useName = nombre,
+                                useEmail = correo,
+                                useAddress = direccion,
+                                usePhone = telefono,
+                                usePassword = contrasenia,
+                                useCi = cedula
+                            };
+
+                            var json = JsonConvert.SerializeObject(usuarioReg);
+                            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                            var response = await _httpClient.PostAsync(URL, content);
+                            response.EnsureSuccessStatusCode();
+                            DisplayAlert("Alerta", "Se ha registrado exitosamente!", "Cerrar");
                             Navigation.PushAsync(new Views.LoginPage());
                             txtCedula.Text = "";
                             txtNombres.Text = "";
@@ -67,7 +79,7 @@ public partial class RegisterPage : ContentPage
         }
         catch (Exception ex)
         {
-            DisplayAlert("Error", "Detalle de error: "+ ex.Message, "Cerrar");
+            DisplayAlert("Error", "Detalle de error: " + ex.Message, "Cerrar");
         }
     }
     private bool EsEmailValido(string email)
@@ -90,4 +102,6 @@ public partial class RegisterPage : ContentPage
         Regex regex = new Regex(@"^0\d{9}$");
         return regex.IsMatch(phoneNumber);
     }
+
+    
 }
