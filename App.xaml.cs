@@ -7,8 +7,12 @@ namespace TouristNavigationApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new Views.LoginPage());
+            
+            MainPage = new NavigationPage(new Views.LoginPage())
+            {
+                BarBackgroundColor = Colors.White,
+                BarTextColor = Colors.Black
+            };
         }
     }
 }

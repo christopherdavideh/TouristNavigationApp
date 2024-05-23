@@ -3,74 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TouristNavigationApp.Views.RegisterPage">
     <ScrollView>
-        <VerticalStackLayout
-        Spacing="10"
-        Padding="25"
-        VerticalOptions="FillAndExpand">
+        <VerticalStackLayout Spacing="15" Padding="25" BackgroundColor="#f5f5f5" VerticalOptions="FillAndExpand">
             <Label 
             Text="Crear Cuenta" 
-            FontSize="25"
-            HorizontalOptions="Start"/>
+            FontSize="28" 
+            FontAttributes="Bold" 
+            HorizontalOptions="Start" 
+            TextColor="#008080"/>
             <Label/>
-            <Label
-            Text="Cédula"
-            FontSize="18"
-            TextColor="Gray"/>
-            <Entry
-            x:Name="txtCedula"
-            Placeholder="Ingrese una cédula"
-            FontSize="18"/>
-            <Label
-            Text="Nombres"
-            FontSize="18"
-            TextColor="Gray"/>
-            <Entry
-            x:Name="txtNombres"
-            Placeholder="Ingrese un nombre y apellido"
-            FontSize="18"/>
-            <Label
-            Text="Correo"
-            FontSize="18"
-            TextColor="Gray"/>
-            <Entry
-            x:Name="txtCorreo"
-            Placeholder="Ingrese un correo"
-            FontSize="18"/>
-            <Label
-            Text="Dirección"
-            FontSize="18"
-            TextColor="Gray"/>
-            <Entry
-            x:Name="txtDireccion"
-            Placeholder="Ingrese una dirección"
-            FontSize="18"/>
-            <Label
-            Text="Teléfono"
-            FontSize="18"
-            TextColor="Gray"/>
-            <Entry
-            x:Name="txtTelefono"
-            Placeholder="Ingrese un teléfono"
-            FontSize="18"
+            <Label 
+            Text="Cédula" 
+            FontSize="15" 
+            FontAttributes="Bold" 
+            TextColor="#008080"/>
+            <Entry 
+            x:Name="txtCedula" 
+            Placeholder="Ingrese una cédula" 
+            FontSize="15" 
+            BackgroundColor="#d3d3d3" 
+            TextColor="#333333" />
+            <Label 
+            Text="Nombres" 
+            FontSize="15" 
+            FontAttributes="Bold" 
+            TextColor="#008080"/>
+            <Entry 
+            x:Name="txtNombres" 
+            Placeholder="Ingrese un nombre y apellido" 
+            FontSize="15" 
+            BackgroundColor="#d3d3d3" 
+            TextColor="#333333" />
+            <Label 
+            Text="Correo" 
+            FontSize="15" 
+            FontAttributes="Bold" 
+            TextColor="#008080"/>
+            <Entry 
+            x:Name="txtCorreo" 
+            Placeholder="Ingrese un correo" 
+            FontSize="15" 
+            BackgroundColor="#d3d3d3" 
+            TextColor="#333333" />
+            <Label 
+            Text="Dirección" 
+            FontSize="15" 
+            FontAttributes="Bold" 
+            TextColor="#008080"/>
+            <Entry 
+            x:Name="txtDireccion" 
+            Placeholder="Ingrese una dirección" 
+            FontSize="15" 
+            BackgroundColor="#d3d3d3" 
+            TextColor="#333333" />
+            <Label 
+            Text="Teléfono" 
+            FontSize="15" 
+            FontAttributes="Bold" 
+            TextColor="#008080"/>
+            <Entry 
+            x:Name="txtTelefono" 
+            Placeholder="Ingrese un teléfono" 
+            FontSize="15" 
+            BackgroundColor="#d3d3d3" 
+            TextColor="#333333"  
             Keyboard="Numeric"/>
-            <Label
-            Text="Contraseña"
-            FontSize="18"
+            <Label 
+            Text="Contraseña" 
+            FontSize="15" 
+            FontAttributes="Bold" 
+            TextColor="#008080"/>
+            <Entry 
+            x:Name="txtContrasenia" 
+            Placeholder="Ingrese una contraseña" 
+            FontSize="15" 
+            BackgroundColor="#d3d3d3" 
+            TextColor="#333333" 
+            IsPassword="True"/>
+            <Label 
+            Text="Al dar clic en Siguiente, acepta los términos y condiciones de la aplicación" 
+            FontSize="12" 
             TextColor="Gray"/>
-            <Entry
-            x:Name="txtContrasenia"
-            Placeholder="Ingrese una contraseña"
-            FontSize="18"/>
-            <Label
-            Text="Al dar clic en Siguiente, acepta los términos y condiciones de la aplicación"
-            FontSize="12"
-            TextColor="Grey"/>
-            <Button
-            x:Name="btnRegister"
-            Text="Siguiente"
-            BackgroundColor="Blue"
-            FontSize="18"
+            <Button 
+            x:Name="btnRegister" 
+            Text="Siguiente" 
+            BackgroundColor="#008080" 
+            TextColor="#ffffff" 
+            FontSize="15" 
+            CornerRadius="5" 
             Clicked="btnRegister_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
+
 </ContentPage>

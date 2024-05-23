@@ -11,7 +11,7 @@ public partial class DashboardPage : ContentPage
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
-        Navigation.PushAsync(new SitePage(lblTitleOne.Text));
+        Navigation.PushAsync(new SiteTuristPage(lblTitleOne.Text, usuarioLoggeado));
     }
 
     private async void TapGestureRecognizer_Tapped_1(object sender, TappedEventArgs e)

@@ -4,31 +4,26 @@ using TouristNavigationApp.Models;
 
 namespace TouristNavigationApp.Views;
 
-public partial class SitePage : ContentPage
+public partial class SiteTuristPage : ContentPage
 {
     private readonly HttpClient _httpClient;
     private const string URL = "http://localhost:8080/api/v1/comments";
-    public SitePage(string title)
+    private const string URLUse = "http://localhost:8080/api/v1/users/email/";
+    private string usuarioLoggeado;
+    public SiteTuristPage(string title, string email)
 	{
 		InitializeComponent();
 		lblTituloSitio.Text = title;
         _httpClient = new HttpClient();
+        usuarioLoggeado = email;
     }
 
     private async void btnAgregarComentario_Clicked(object sender, EventArgs e)
     {
 		try
 		{
-            Usuarios usuarioComment = new()
-            {
-                useId = 1,
-                useName = "Daniel",
-                useEmail = "correo@gmail.com",
-                useAddress = "Direccion de",
-                usePhone = "0998776655",
-                usePassword = "danig163",
-                useCi = "1750819094"
-            };
+            var contentUse = await _httpClient.GetStringAsync(URLUse+usuarioLoggeado);
+            Usuarios usuarioActual = JsonConvert.DeserializeObject<Usuarios>(contentUse);
 
             Lugares lugarComment = new()
             {
@@ -45,8 +40,8 @@ public partial class SitePage : ContentPage
             Comentarios comentario = new()
             {
                 comDetail = txtComentario.Text,
-                comScore = 5,
-                fkUser = usuarioComment,
+                comScore = int.Parse(txtCalificacion.Text),
+                fkUser = usuarioActual,
                 fkPlace = lugarComment
             };
 
@@ -55,8 +50,8 @@ public partial class SitePage : ContentPage
 
             var response = await _httpClient.PostAsync(URL, content);
             response.EnsureSuccessStatusCode();
-            //DisplayAlert("Información", "Comentario agregado correctamente!", "Cerrar");
-            //txtComentario.Text = "";
+            DisplayAlert("Información", "Comentario agregado correctamente!", "Cerrar");
+            txtComentario.Text = "";
         }
 		catch (Exception ex)
 		{
