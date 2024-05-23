@@ -10,7 +10,7 @@ public partial class UpdateCommentPage : ContentPage
     public UpdateCommentPage(Comentarios comentario, string correo)
     {
         InitializeComponent();
-        txtComentario.Text = comentario.DetalleComentario;
+        txtComentario.Text = comentario.comDetail;
         comentarioActualizar = comentario;
         usuarioLoggeado = correo;
     }
@@ -22,7 +22,7 @@ public partial class UpdateCommentPage : ContentPage
             DateTime fechaActual = DateTime.Now;
             String fechaComentario = fechaActual.ToString("yyyy-MM-dd");
             string comentario = txtComentario.Text;
-            int id = comentarioActualizar.IdComentario;
+            int id = comentarioActualizar.comId;
             WebClient usuario = new WebClient();
             var parametros = new System.Collections.Specialized.NameValueCollection();
             usuario.UploadValues("http://localhost/appmovil/postcoment.php?IdComentario=" + id + "&DetalleComentario="
@@ -41,7 +41,7 @@ public partial class UpdateCommentPage : ContentPage
         {
             WebClient cliente = new WebClient();
             var parametros = new System.Collections.Specialized.NameValueCollection();
-            int id = comentarioActualizar.IdComentario;
+            int id = comentarioActualizar.comId;
             cliente.UploadValues("http://localhost/appmovil/postcoment.php?IdComentario=" + id, "DELETE", parametros);
             Navigation.PushAsync(new ProfilePage(usuarioLoggeado));
         }

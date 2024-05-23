@@ -29,8 +29,10 @@ public partial class ProfilePage : ContentPage
     {
         var contentUsuario = await cliente.GetStringAsync(UrlUsuarioConsulta + usuarioLoggeado);
         Usuarios usuarioPerfil = JsonConvert.DeserializeObject<Usuarios>(contentUsuario);
+        /*
         txtCorreo.Text = usuarioPerfil.CorreoUsuario;
         txtNombres.Text = usuarioPerfil.NombresUsuario;
+        */
     }
     private void listaComentarios_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {

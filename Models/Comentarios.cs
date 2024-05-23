@@ -8,8 +8,10 @@ namespace TouristNavigationApp.Models
 {
     public class Comentarios
     {
-        public int IdComentario { get; set; }
-        public string DetalleComentario { get; set; }
-        public DateTime FechaComentario { get; set; }
+        public int comId { get; set; }
+        public string comDetail { get; set; }
+        public int comScore { get; set; }
+        public Usuarios fkUser { get; set; }
+        public Lugares fkPlace { get; set; }
     }
 }
