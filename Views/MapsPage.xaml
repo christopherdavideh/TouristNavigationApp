@@ -3,21 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
              x:Class="TouristNavigationApp.Views.MapsPage"
-             Title="MapsPage">
-    <StackLayout>
-            <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-            <maps:Map x:Name="googleMap"
-                      MapType="Street"
-                      IsShowingUser="true"
-                      IsScrollEnabled="True"
-                      IsTrafficEnabled="True"
-                      IsZoomEnabled="True"
-                      >
-            </maps:Map>
-
-        </StackLayout>
+             Title="MapsPage"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout
+        Padding="15,25">
+        <Label Text="Lugares"
+               Margin="0,20"
+               FontSize="24"
+               FontAttributes="Bold"/>
+        <maps:Map x:Name="map"
+                  IsShowingUser="true"
+                  IsTrafficEnabled="True"
+                  MaximumHeightRequest="500">
+            <maps:Map.ItemTemplate>
+                <DataTemplate>
+                    <maps:Pin Location="{Binding Location}"
+                      Address="{Binding Address}"
+                      Label="{Binding Description}" />
+                </DataTemplate>
+            </maps:Map.ItemTemplate>
+        </maps:Map>
+    </VerticalStackLayout>
 </ContentPage>
