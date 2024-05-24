@@ -32,7 +32,7 @@ public partial class DashboardPage : ContentPage
 
     private async void IAButton_Tapped(object sender, TappedEventArgs e)
     {
-        await DisplayAlert("Mensaje", "INTELIGENCIA ARTIFICIAL", "OK");
+        Navigation.PushAsync(new vChatBot());//  await DisplayAlert("Mensaje", "INTELIGENCIA ARTIFICIAL", "OK");
     }
 
     private async void PerfilButton_Tapped(object sender, TappedEventArgs e)

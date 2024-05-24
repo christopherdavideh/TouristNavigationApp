@@ -8,7 +8,7 @@ namespace TouristNavigationApp.Views;
 public partial class RegisterPage : ContentPage
 {
     private readonly HttpClient _httpClient;
-    private const string URL = "http://localhost:8080/api/v1/users";
+    private const string URL = "http://172.19.144.1:8080/api/v1/users";
     public RegisterPage()
 	{
 		InitializeComponent();

@@ -7,8 +7,8 @@ namespace TouristNavigationApp.Views;
 public partial class SiteTuristPage : ContentPage
 {
     private readonly HttpClient _httpClient;
-    private const string URL = "http://localhost:8080/api/v1/comments";
-    private const string URLUse = "http://localhost:8080/api/v1/users/email/";
+    private const string URL = "http://172.19.144.1:8080/api/v1/comments";
+    private const string URLUse = "http://172.19.144.1:8080/api/v1/users/email/";
     private string usuarioLoggeado;
     public SiteTuristPage(string title, string email)
 	{
@@ -52,6 +52,7 @@ public partial class SiteTuristPage : ContentPage
             response.EnsureSuccessStatusCode();
             DisplayAlert("Información", "Comentario agregado correctamente!", "Cerrar");
             txtComentario.Text = "";
+            txtCalificacion.Text = "";
         }
 		catch (Exception ex)
 		{

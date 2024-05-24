@@ -10,8 +10,8 @@ public partial class UpdateCommentPage : ContentPage
     private readonly HttpClient _httpClient;
     private Comentarios comentarioActualizar;
     private string usuarioLoggeado;
-    private const string URL = "http://localhost:8080/api/v1/comments";
-    private const string URLUse = "http://localhost:8080/api/v1/users/email/";
+    private const string URL = "http://172.19.144.1:8080/api/v1/comments";
+    private const string URLUse = "http://172.19.144.1:8080/api/v1/users/email/";
     private int idComentario;
     public UpdateCommentPage(Comentarios comentario, string correo)
     {

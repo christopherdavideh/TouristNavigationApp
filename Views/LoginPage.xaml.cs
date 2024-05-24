@@ -9,7 +9,7 @@ namespace TouristNavigationApp.Views;
 
 public partial class LoginPage : ContentPage
 {
-    private const string URL = "http://localhost:8080/api/v1/users";
+    private const string URL = "http://172.19.144.1:8080/api/v1/users";
     private readonly HttpClient cliente = new HttpClient();
     Dictionary<string, string> Credenciales = new Dictionary<string, string>();
     public LoginPage()

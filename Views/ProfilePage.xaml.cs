@@ -7,8 +7,8 @@ namespace TouristNavigationApp.Views;
 public partial class ProfilePage : ContentPage
 {
     private readonly HttpClient _httpClient;
-    private const string URLComment = "http://localhost:8080/api/v1/comments/user/";
-    private const string URLUse = "http://localhost:8080/api/v1/users/email/";
+    private const string URLComment = "http://172.19.144.1:8080/api/v1/comments/user/";
+    private const string URLUse = "http://172.19.144.1:8080/api/v1/users/email/";
     private ObservableCollection<Comentarios> comentario;
     private string usuarioLoggeado;
     private int idUsuario;
